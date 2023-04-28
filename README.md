@@ -1,6 +1,41 @@
-# Getting Started with Create React App
+# Hangman Game
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
+
+1. Description
+2. How to play
+3. Credits
+4. Install inscructions
+5. Available scripts
+   1.1 npm start
+   1.2 npm test
+   1.3 npm run build
+   1.4 npm run eject
+6. Learn more about react
+
+## Description
+
+Hangman is a classic word game in which you must guess the secret word \
+one letter at a time. Challenge friends from Facebook, Twitter, Google+ \
+or The Free Dictionary, or go up against random opponents across all \
+platforms.
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and developed using HTML, CSS and JavaScript.
+
+## How to play
+
+Guess one letter at a time to reveal the secret word.
+
+Each incorrect guess adds another part to the hangman. You only get 7 \
+incorrect guesses.
+
+## Credtis
+
+[https://hangmanwordgame.com/](https://hangmanwordgame.com/)
+
+## Install instructions
+
+To install, type `npm start` on a terminal window in the project directory.
 
 ## Available Scripts
 
@@ -39,32 +74,10 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Learn More About React
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+project's title, description, table of contents, how the user can install the game, rules of the game, credits, screenshots of the game etc.
