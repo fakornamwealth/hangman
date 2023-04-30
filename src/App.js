@@ -1,16 +1,11 @@
 // Import dependencies
 import "./App.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Rules from "./components/Rules";
-import Character from "./components/Character";
 import Result from "./components/Result";
 import Guesses from "./components/Guesses";
-
-// Function to fetch a random word from an external API
-const getWord = async function () {
-  const response = await fetch("https://random-word-api.herokuapp.com/word");
-  return response.json();
-};
+import Word from "./components/Word";
+import Letters from "./components/Letters";
 
 // Function to show the game rules
 function rules() {
@@ -24,19 +19,12 @@ function reset() {
   window.location.reload();
 }
 
-// Function to display a help message
-function help() {
-  let display = document.getElementById("help").style.display;
-  let newDisplay = display == "block" ? "none" : "block";
-  document.getElementById("help").style.display = newDisplay;
-}
-
 // Main component
 function App() {
   // Define game state variables
   const [correct, setCorrect] = useState(0); // Variable to hold number of correct guesses so far
   const [wrong, setWrong] = useState(0); // Variable to hold number of wrong guesses so far
-  const [charStates, setCharStates] = useState([]); // Array to hold the state of each letter in the word to be guessed
+  const [charStates, setCharStates] = useState([]); // Array to hold the state of each letter in the word to be guesse
   const [win, setWin] = useState(false); // Boolean to set the win state of the game
   const [lose, setLose] = useState(false); // Boolean to set the lose state of the game
   const [letters, setLetters] = useState([
@@ -71,7 +59,7 @@ function App() {
 
   // This function runs each time the player clicks on a letter
   function checkOption(char) {
-    if (wrong < 8) {
+    if (wrong < 8 && !win && !lose) {
       // If the player has less than 8 wrong attempts, proceed...
       // Get the currently clicked letter
       // By selecting it with the index of the char parameter
@@ -143,62 +131,25 @@ function App() {
     }
   }
 
-  useEffect(function () {
-    // Call getWord function to get random word from external API
-    getWord().then(function (json) {
-      const word = json[0];
-      console.log(word);
-      const states = [];
-      // Itarate over the letters of the new word, setting each letter to false, to hide them at first
-      for (let i = 0; i < word.length; i++) {
-        states.push({
-          char: word[i],
-          state: false,
-        });
-      }
-      setCharStates(states); // udpate the state variable for the word's letters
-    });
-  }, []);
-
   return (
-    <div className="App">
+    <div className={`App${win || lose ? " finish" : ""}`}>
       <h1>Hangman</h1>
-      {/* Use .map() function to iterate over each letter in the word to be guessed */}
-      {/* Render one Character component with properties, for each letter in teh word */}
-      {charStates.map(function (char, index) {
-        return <Character key={index} char={char.char} state={char.state} />;
-      })}
+
+      <Word charStates={charStates} setCharStates={setCharStates} />
 
       <Guesses data={{ correct, wrong }} />
 
-      <div id="letters">
-        {/* Iterate over all letters in the alphabet to show game controls to the player */}
-        {letters.map(function (letter, index) {
-          return (
-            <button
-              key={index}
-              onClick={function () {
-                checkOption(letter.letter); // call checkOption funciton when the player clicks on a letter
-              }}
-              className={letter.tried ? "tried" : ""}
-            >
-              {letter.letter}
-            </button>
-          );
-        })}
-      </div>
+      <Letters letters={letters} checkOption={checkOption} />
+
       {/* Show additional game options */}
-      <p>
-        <a href="#" onClick={rules}>
+      <div class="user-options">
+        <button href="#" onClick={rules}>
           How to play
-        </a>{" "}
-        <a href="#" onClick={reset}>
+        </button>{" "}
+        <button href="#" onClick={reset}>
           Restart
-        </a>{" "}
-        <a href="#" onClick={help}>
-          Help
-        </a>
-      </p>
+        </button>
+      </div>
       {/* Show game state after winning or losing */}
       <Result state={{ win, lose }} />
       <Rules />

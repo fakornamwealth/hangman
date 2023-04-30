@@ -46,29 +46,6 @@ function Rules() {
         favorite WordHub answers or share interesting new words with your
         friends.
       </p>
-
-      <p>
-        <b>Hints</b>
-      </p>
-
-      <p>
-        If you need help finding a word, click the Hint button (or press Alt+L
-        on your keyboard).
-      </p>
-      <p>Each hint costs 1 coin and will give you 1 letter.</p>
-      <p>
-        If you start a round with fewer than 10 hints and you use them all, you
-        can get more coins to redeem for hints during the round by clicking the
-        Hint button.
-      </p>
-      <p>
-        If you start a round with no hints (i.e. you have no coins), you will
-        not be able to get more during the round, so stock up before each round!
-      </p>
-      <p>
-        After each round, you can see which letters were found using hints by
-        both you and your opponent.
-      </p>
     </div>
   );
 }
